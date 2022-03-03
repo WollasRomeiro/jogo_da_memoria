@@ -26,10 +26,10 @@ let shuffleOrder = () => {
 
 //acendde a proxima cor
 let lightColor = (element, Number) => {
-    time = time * 500;
+    number = number * 500;
     setTimeout(() => {
         element.classlist.add('selected')
-    }, tempo - 250);
+    }, number - 250);
     setTimeout(() => {
         element.classlist.removed('selected')
     });
@@ -57,7 +57,7 @@ let click = (color) => {
     setTimeout(() => {
         createColorElement(color).classlist.removed('selected');
         checkOrder();
-    },250);
+    },250)
 }
 
 //funcao que retorna a cor
@@ -88,6 +88,7 @@ let gameOver = () => {
 }
 
 
+//funcao de inicio do jogo
 let playGame = () => {
     alert('Bem vindo ao Genesis! Iniciando novo jogo');
     score = 0;
@@ -95,9 +96,12 @@ let playGame = () => {
     nextlevel();
 }
 
-green.addEventListener('click', click(0));
-red.addEventListener('click', click(0));
-yellow.addEventListener('click', click(0));
-blue.addEventListener('click', click(0));
+//eventos de click para cores
+green.onclick = () => click(0);
+red.onclick = () => click(1);
+yellow.onclick = () => click(2);
+blue.onclick = () => click(3);
 
+
+//Inicio do jogo
 playGame();
